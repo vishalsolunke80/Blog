@@ -1,0 +1,46 @@
+1: make dictoniary using mkdir command
+2:change path using cd command
+3:create environment using 'py -3 -m venv .venv
+3:Install flask 
+
+
+create Application:
+
+    from flask import Flask
+
+    app = Flask(__name__)  //application start from here
+
+    @app.route('/')
+    def hello():
+    return "<p>hello<p>"
+
+
+Escape:
+
+ from flask import Flask
+from markupsafe import escape
+
+
+app= Flask(__name__)
+
+
+@app.route('/<name>')  @app.route('/<int:name>')
+def hello(name):
+    return f"hello,{escape(name)}"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+HTTPS Methods:
+
+from flask import Flask,request,methods
+
+app = Flask(__name__)
+
+@app.route('/login',methods=['GET','POST'])
+def login():
+    if request.method == 'POST':
+        request do_the_login()  //method
+    else:
+        return show_the_login_form()  //method
